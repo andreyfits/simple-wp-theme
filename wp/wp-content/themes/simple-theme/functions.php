@@ -41,3 +41,12 @@ function simple_theme_setup() {
 }
 
 add_action( 'after_setup_theme', 'simple_theme_setup' );
+
+add_filter('navigation_markup_template', 'navigation_template', 10, 2 );
+function navigation_template( $template, $class ){
+    return '
+	<nav class="navigation" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}

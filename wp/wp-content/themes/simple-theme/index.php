@@ -19,7 +19,14 @@
                         </div>
                     </div>
                 </div>
-            <?php endwhile; else : ?>
+            <?php endwhile; ?>
+                <?php the_posts_pagination(array(
+                    'show_all' => false,
+                    'mid_size' => 2,
+                    'end_size' => 1,
+                    'type'     => 'list'
+                )); ?>
+            <?php else : ?>
                 <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
             <?php endif; ?>
         </div>
