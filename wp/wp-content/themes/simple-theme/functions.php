@@ -34,3 +34,10 @@ function simple_theme_scripts(): void
 }
 
 add_action( 'wp_enqueue_scripts', 'simple_theme_scripts' );
+
+function simple_theme_setup() {
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 300, 200 );
+}
+
+add_action( 'after_setup_theme', 'simple_theme_setup' );
