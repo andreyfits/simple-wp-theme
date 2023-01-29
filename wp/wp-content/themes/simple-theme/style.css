@@ -78,3 +78,16 @@ span.dots {
 nav.navigation {
     width: 100%;
 }
+
+.categories {
+    list-style: none;
+}
+
+.categories ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}

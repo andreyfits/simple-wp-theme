@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple Theme</title>
     <?php wp_head(); ?>
 </head>
 <body>

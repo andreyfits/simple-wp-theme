@@ -37,6 +37,7 @@ add_action( 'wp_enqueue_scripts', 'simple_theme_scripts' );
 
 function simple_theme_setup() {
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'title-tag' );
     set_post_thumbnail_size( 300, 200 );
 }
 
@@ -49,4 +50,39 @@ function navigation_template( $template, $class ){
 		<div class="nav-links">%3$s</div>
 	</nav>    
 	';
+}
+
+function simple_theme_entry_meta_footer() {
+
+    if ( ! is_single() ) {
+
+        if ( has_category() || has_tag() ) {
+
+            echo '<div>';
+
+            $categories_list = get_the_category_list( wp_get_list_item_separator() );
+            if ( $categories_list ) {
+                printf(
+                    '<span>' . esc_html__( 'Categorized as %s', 'simpletheme' ) . ' </span>',
+                    $categories_list
+                );
+            }
+        }
+    } else {
+
+        if ( has_category() ) {
+
+            echo '<div>';
+
+            $categories_list = get_the_category_list( wp_get_list_item_separator() );
+            if ( $categories_list ) {
+                printf(
+                    '<span>' . esc_html__( 'Categorized as %s', 'simpletheme' ) . ' </span>',
+                    $categories_list
+                );
+            }
+
+            echo '</div>';
+        }
+    }
 }

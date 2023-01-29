@@ -12,6 +12,7 @@
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail() ?>
                             <?php endif; ?>
+                            <?php simple_theme_entry_meta_footer(); ?>
                             <p class="card-text"><?php the_excerpt() ?></p>
                         </div>
                         <div class="card-footer">
@@ -26,6 +27,14 @@
                     'end_size' => 1,
                     'type'     => 'list'
                 )); ?>
+                <?php
+                $args = array( 'orderby' => 'name','order' => 'ASC' );
+                $categories = wp_list_categories( $args );
+                foreach($categories as $category) {
+                    echo '<p><a href="' . get_category_link( $category->term_id ) . '">' . $category->category_nicename . '</a></p>';
+                    echo '<p class="cat-child"><a href="' . get_category_link( $category->term_id ).'">' . $category->child . '</a></p>';
+                }
+                ?>
             <?php else : ?>
                 <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
             <?php endif; ?>
