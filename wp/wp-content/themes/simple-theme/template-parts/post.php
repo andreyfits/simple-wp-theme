@@ -11,7 +11,7 @@
             <p class="card-text"><?php the_excerpt() ?></p>
         </div>
         <div class="card-footer">
-            <a href="<?php the_permalink() ?>" class="btn btn-primary">Read More</a>
+            <a href="<?php the_permalink() ?>" class="btn btn-primary"><?php _e('Read more', 'simple-theme'); ?></a>
         </div>
     </div>
 </div>
