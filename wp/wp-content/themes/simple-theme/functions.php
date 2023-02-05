@@ -53,6 +53,11 @@ if ( ! function_exists( 'simple_theme_setup' ) ) :
 endif;
 
 add_action( 'after_setup_theme', 'simple_theme_setup' );
+
+add_action( 'after_setup_theme', function(){
+	load_theme_textdomain( 'simple-theme', get_template_directory() . '/languages' );
+});
+
 add_filter( 'navigation_markup_template', 'simple_theme_navigation_template', 10, 2 );
 
 if ( ! function_exists( 'simple_theme_navigation_template' ) ) :
